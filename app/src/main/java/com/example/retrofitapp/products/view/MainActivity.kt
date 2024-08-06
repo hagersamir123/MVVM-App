@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mvp_task.db.LocalDataSource
 import com.example.retrofitapp.Models.Product
 import com.example.retrofitapp.products.viewModel.ProductViewModel
 import com.example.retrofitapp.R
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getViewModel(){
         val productsViewModelFactory = ProductsViewModelFactory(
-            ProductsRepositoryImplementation(ApiClient)
+            ProductsRepositoryImplementation(ApiClient , LocalDataSource.instance!!)
         )
         productViewModel = ViewModelProvider(this , productsViewModelFactory).get(ProductViewModel::class.java)
     }
