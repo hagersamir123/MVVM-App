@@ -5,5 +5,6 @@ data class Meta(
     val createdAt: String,
     val qrCode: String,
     val updatedAt: String,
-    val hager : String
+    val hager : String,
+    val yara : String
 )
